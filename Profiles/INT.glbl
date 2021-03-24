@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalVariableEntities>
+   <description></description>
+   <name>INT</name>
+   <tag></tag>
+   <defaultProfile>false</defaultProfile>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'d77c4f61734f43312ebc11d4d9ec7d31'</initValue>
+      <name>access_key</name>
+   </GlobalVariableEntity>
+</GlobalVariableEntities>

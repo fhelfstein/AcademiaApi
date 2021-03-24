@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>Validar que aplicacao esta retornando os produtos referente a marca pesquisada</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>f2ec0cdd-2c6f-46ad-a302-ede9894c34da</testCaseGuid>
+</TestCaseEntity>
