@@ -14,6 +14,7 @@ import com.kms.katalon.core.testobject.TestObject as TestObject
 import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import internal.GlobalVariable as GlobalVariable
+import groovy.json.JsonSlurper
 
 
 def MarcaDoProduto = 'maybelline'
@@ -22,7 +23,10 @@ def RetornoEndPoint= WS.sendRequest(findTestObject('Postman/Pesquisa Produto', [
 
 WS.verifyResponseStatusCode(RetornoEndPoint, 200)
 
-def ListaDeMarcasRetornadas = WS.getElementPropertyValue(RetornoEndPoint, 'brand')
+JsonSlurper slurper = new JsonSlurper()
+Map parsedJson = slurper.parseText(RetornoEndPoint.getResponseBodyContent())
+
+def ListaDeMarcasRetornadas = parsedJson.brand
 println(ListaDeMarcasRetornadas)
 
 
@@ -35,19 +39,15 @@ WS.verifyEqual (marca,MarcaDoProduto)
 	
 }
 
-
- 
-List<String> TiposDosProdutos = WS.getElementPropertyValue(RetornoEndPoint,'product_type')
+List<String> TiposDosProdutos = parsedJson.product_type
 
 println(TiposDosProdutos)
 
 WS.verifyEqual(TiposDosProdutos.contains('bronzer'), true)
 
 
-
-
-def CodigoDaCor = WS.getElementPropertyValue(RetornoEndPoint, 'product_colors.hex_value')
-def  NomeDacor = WS.getElementPropertyValue(RetornoEndPoint, 'product_colors.colour_name')
+def CodigoDaCor = parsedJson.product_colors.hex_value
+def  NomeDacor = parsedJson.product_colors.colour_name
 
 println(CodigoDaCor)
 println(NomeDacor)
