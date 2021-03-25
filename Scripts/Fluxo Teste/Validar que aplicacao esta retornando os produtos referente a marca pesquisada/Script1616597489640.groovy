@@ -17,15 +17,16 @@ import internal.GlobalVariable as GlobalVariable
 import groovy.json.JsonSlurper
 
 
-def MarcaDoProduto = 'maybelline'
+def MarcaDoProduto = 'colourpop'
 
 def RetornoEndPoint= WS.sendRequest(findTestObject('Postman/Pesquisa Produto', [('Marca') : MarcaDoProduto]))
 
 WS.verifyResponseStatusCode(RetornoEndPoint, 200)
 
 JsonSlurper slurper = new JsonSlurper()
-Map parsedJson = slurper.parseText(RetornoEndPoint.getResponseBodyContent())
-
+println(RetornoEndPoint.getResponseBodyContent());
+//Map parsedJson = slurper.parseText(RetornoEndPoint.getResponseBodyContent())
+/*
 def ListaDeMarcasRetornadas = parsedJson.brand
 println(ListaDeMarcasRetornadas)
 
@@ -53,4 +54,4 @@ println(CodigoDaCor)
 println(NomeDacor)
 
 WS.verifyNotEqual(CodigoDaCor, null)
-WS.verifyNotEqual(NomeDacor, null)
+WS.verifyNotEqual(NomeDacor, null)*/

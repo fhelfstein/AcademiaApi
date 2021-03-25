@@ -32,7 +32,7 @@
    <socketTimeout>-1</socketTimeout>
    <useServiceInfoFromWsdl>true</useServiceInfoFromWsdl>
    <variables>
-      <defaultValue>'maybelline'</defaultValue>
+      <defaultValue>'colourpop'</defaultValue>
       <description></description>
       <id>3c58b529-deb9-4a82-a07f-d1f441e68437</id>
       <masked>false</masked>
